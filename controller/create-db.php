@@ -20,6 +20,18 @@ if(!$exist){
            else{
                echo "database already exist."; 
            }
+           
+   $query = $connection-> query("CREATE TABLE posts("
+           ."id in(11) NOT NULL AUTO INCREMENT,"
+           ."title varchar(255) NOT NULL,"
+           ."post text NOT NULL,"
+           ."PRIMARY KEY (id))");
 
+   if($query){
+       echo "succesfully created table: post";
+   }
+   else {
+       echo"<p>$connection->error</p>";
+   }
 
 $connection->close();  
