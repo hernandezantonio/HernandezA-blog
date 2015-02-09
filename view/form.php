@@ -1,8 +1,17 @@
-<?php
+<h1>Create Blog Post </h1>
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<form>
+    <div>
+        <label for="title">Title: </label>
+        <input type="text" name="title"/>
+    </div>
+    
+    <div>
+        <label for="post">Post: </label>
+        <textarea name="post"></textarea>
+    </div>
+    <div> 
+        <button type="submit">Submit</button>
+    
+    </div>
+</form>
