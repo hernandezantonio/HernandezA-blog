@@ -1,7 +1,18 @@
 <?php
-$title = filer_input(INPUT_POST, "title", FILTER_SANITIZE_STRING); 
-$post;filer_input(INPUT_POST, "post", FILTER_SANITIZE_STRING);
+require_once(__DIR__. "/../model/config.php");
 
-echo "<p>Title: $title </p>"; 
+$connection = new mysqli($host, $username, $password, $database);
 
-echo "<p>Post: $post </p>";
+$title = filter_input(INPUT_POST, "title", FILTER_SANITIZE_STRING); 
+$post = filter_input(INPUT_POST, "post", FILTER_SANITIZE_STRING);
+
+$query = $connection->query("INSERT INTO posts SET title = '$title', post = '$post'"); 
+
+if($query){
+    echo "<p>succesfully inserted post: $title</p>";
+} 
+else{
+    echo "<p> $connection->error</p>";
+}
+
+$connection->close();
